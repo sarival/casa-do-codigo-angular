@@ -2,21 +2,40 @@
   <h4>Cadastro de Autor</h4>
   <hr>
   <form [formGroup]="cadastroForm" (ngSubmit)="adicionarAutor()">
-    <div class="form-group">
-      <label for="exampleInputEmail1">Email</label>
-      <input type="email" formControlName="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-    </div>
+
     <div class="form-group">
       <label for="exampleInputPassword1">Nome</label>
       <input type="text" formControlName="nome" class="form-control" id="exampleInputPassword1">
+
+      <span class="text-danger" *ngIf="cadastroForm.get('nome').errors && (cadastroForm.get('nome').touched || cadastroForm.get('nome').dirty)">
+        <p>Campo Obrigatório</p>
+      </span>
     </div>
+   
+    <div class="form-group">
+      <label for="exampleInputEmail1">Email</label>
+      <input [ngClass]="{'is-invalid': cadastroForm.get('email').errors && (cadastroForm.get('email').touched || cadastroForm.get('email').dirty)}" type="email" formControlName="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+
+      <span class="text-danger" *ngIf="cadastroForm.get('email')?.errors?.required && (cadastroForm.get('email').touched || cadastroForm.get('email').dirty)">
+        <p>Campo Obrigatório</p>
+      </span>
+      <span class="text-danger" *ngIf="cadastroForm.get('email')?.errors?.email && (cadastroForm.get('email').touched || cadastroForm.get('email').dirty)">
+        <p>Formato invalido</p>
+      </span>
+    </div>
+
     <div class="form-group">
       <label for="exampleFormControlTextarea1">Descrição</label>
-      <textarea formControlName="descricao" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+      <textarea formControlName="descricao" class="form-control" id="exampleFormControlTextarea1" rows="3" maxlength="400"></textarea>
+
+      <span class="text-danger" *ngIf="cadastroForm.get('descricao').errors && (cadastroForm.get('nome').touched || cadastroForm.get('nome').dirty)">
+        <p>Campo Obrigatório</p>
+      </span>
     </div>
-    <button type="submit" class="btn btn-primary btn-block col-2">Cadastrar</button>
+
+    <button type="submit" class="btn btn-primary btn-block col-2" [disabled]="!cadastroForm.valid">Cadastrar</button>
   </form>
   <div class="mt-4">
-    <button class="btn btn-outline-secondary btn-block col-2" [routerLink]="['/home']" >Voltar</button>
+    <button class="btn btn-outline-secondary btn-block col-2" [routerLink]="['/home']"  >Voltar</button>
   </div>
 </div>

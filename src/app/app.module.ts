@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './navegacao/navbar/navbar.component';
 import { HomeAdminComponent } from './admin/home-admin/home-admin.component';
 import { CadastroAutorComponent } from './admin/autor/cadastro-autor/cadastro-autor.component';
+import { DataService } from './services/data.service';
 
 
 @NgModule({
@@ -21,7 +22,7 @@ import { CadastroAutorComponent } from './admin/autor/cadastro-autor/cadastro-au
     ReactiveFormsModule,
     AppRoutingModule,
   ],
-  providers: [],
+  providers: [DataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
