@@ -1,15 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-cadastro-autor',
-  templateUrl: './cadastro-autor.component.html',
-  styleUrls: ['./cadastro-autor.component.css']
+  templateUrl: './cadastro-autor.component.html'
 })
-export class CadastroAutorComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit() {
-  }
-
-}
+export class CadastroAutorComponent {}
