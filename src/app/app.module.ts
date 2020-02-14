@@ -7,6 +7,7 @@ import { NavbarComponent } from './navegacao/navbar/navbar.component';
 import { HomeAdminComponent } from './admin/home-admin/home-admin.component';
 import { CadastroAutorComponent } from './admin/autor/cadastro-autor/cadastro-autor.component';
 import { DataService } from './services/data.service';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -21,6 +22,7 @@ import { DataService } from './services/data.service';
     FormsModule,
     ReactiveFormsModule,
     AppRoutingModule,
+    HttpClientModule
   ],
   providers: [DataService],
   bootstrap: [AppComponent]

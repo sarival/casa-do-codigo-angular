@@ -1,3 +1,5 @@
+import { RouterModule } from '@angular/router';
+import { DataService } from './../../../services/data.service';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Autor } from 'src/app/models/autor.model';
@@ -12,7 +14,7 @@ export class CadastroAutorComponent implements OnInit {
   autor: Autor;
   formResult: string = '';
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private service: DataService, private router: RouterModule) {
   
   }
   
@@ -26,8 +28,14 @@ export class CadastroAutorComponent implements OnInit {
 
   adicionarAutor(){
     if(this.cadastroForm.valid && this.cadastroForm.dirty){
-      this.autor = Object.assign({}, this.autor, this.cadastroForm.value)
-      this.formResult = JSON.stringify(this.cadastroForm.value)
+      this.autor = Object.assign({}, this.autor, this.cadastroForm.value);
+      this.formResult = JSON.stringify(this.autor);
+      
+      this.service.cadastrarAutor(this.formResult).subscribe();
     }
+    this.autor = Object.assign({}, this.autor, this.cadastroForm.value);
+    this.formResult = JSON.stringify(this.autor);
+    
+    this.service.cadastrarAutor(this.formResult).subscribe();
   }
 }
