@@ -7,7 +7,7 @@ import { CadastroAutorComponent } from './admin/autor/cadastro-autor/cadastro-au
 const routes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
   {path: 'home', component: HomeAdminComponent},
-  {path: 'autor', component: CadastroAutorComponent},
+  {path: 'autores', component: CadastroAutorComponent},
 ];
 
 @NgModule({

@@ -1,5 +1,5 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Autor } from '../models/autor.model';
 
 @Injectable({
@@ -7,11 +7,18 @@ import { Autor } from '../models/autor.model';
 })
 export class DataService {
 
-  protected url: string = "https://localhost:5001/api/";
-
   constructor(private http: HttpClient) { }
 
-  cadastrarAutor(data){
-    return this.http.post(this.url + "Autores", data);
+  public cadastrarAutor(autor: Autor){
+
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json'
+    });
+
+    const options = {
+      headers: headers
+    }
+
+    return this.http.post('https://localhost:5001/api/autores', JSON.stringify(autor), options);
   }
 }
