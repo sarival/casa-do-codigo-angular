@@ -28,7 +28,7 @@
       <label for="exampleFormControlTextarea1">Descrição</label>
       <textarea formControlName="descricao" class="form-control" id="exampleFormControlTextarea1" rows="3" maxlength="400"></textarea>
 
-      <span class="text-danger" *ngIf="cadastroForm.get('descricao').errors && (cadastroForm.get('nome').touched || cadastroForm.get('nome').dirty)">
+      <span class="text-danger" *ngIf="cadastroForm.get('descricao').errors && (cadastroForm.get('descricao').touched || cadastroForm.get('descricao').dirty)">
         <p>Campo Obrigatório</p>
       </span>
     </div>
