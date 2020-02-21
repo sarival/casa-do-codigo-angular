@@ -9,7 +9,7 @@ export class DataService {
 
   constructor(private http: HttpClient) { }
 
-  public cadastrarAutor(autor: Autor){
+  public cadastrarAutor(autor){
 
     const options = {
       headers: {

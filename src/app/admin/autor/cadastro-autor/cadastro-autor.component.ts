@@ -1,7 +1,6 @@
 import { Router } from '@angular/router';
 import { Component, OnInit, AfterViewInit, ViewChildren, ElementRef } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormControlName } from '@angular/forms';
-import { Autor } from 'src/app/models/autor.model';
 import { DataService } from 'src/app/services/data.service';
 import { ValidationMessages, GenericValidator, DisplayMessage } from '../../generic-form-validation';
 import { Observable, fromEvent, merge } from 'rxjs';
@@ -16,7 +15,6 @@ export class CadastroAutorComponent implements OnInit, AfterViewInit {
   @ViewChildren(FormControlName, { read: ElementRef }) formInputElements: ElementRef[];
   
   public cadastroForm: FormGroup;
-  public autor: Autor;
 
   //add variaveis
   public validationMessages: ValidationMessages;
@@ -63,11 +61,7 @@ export class CadastroAutorComponent implements OnInit, AfterViewInit {
 
   adicionarAutor(){
     if(this.cadastroForm.valid){
-      this.autor = Object.assign({}, this.autor, this.cadastroForm.value);
-
-      alert("valido");
-      
-      this.service.cadastrarAutor(this.autor).subscribe( res => {this.router.navigateByUrl("/")} );
+      this.service.cadastrarAutor(this.cadastroForm.value).subscribe( res => {this.router.navigateByUrl("/")} );
     }
   }
 }
