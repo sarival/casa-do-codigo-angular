@@ -26,7 +26,7 @@ export class CadastroAutorComponent implements OnInit {
   }
 
   adicionarAutor(){
-    if(this.cadastroForm.valid && this.cadastroForm.dirty){
+    if(this.cadastroForm.valid){
       this.autor = Object.assign({}, this.autor, this.cadastroForm.value);
       
       this.service.cadastrarAutor(this.autor).subscribe( res => {this.router.navigateByUrl("/")} );
