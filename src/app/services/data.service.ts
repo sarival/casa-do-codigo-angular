@@ -11,12 +11,10 @@ export class DataService {
 
   public cadastrarAutor(autor: Autor){
 
-    const headers = new HttpHeaders({
-      'Content-Type': 'application/json'
-    });
-
     const options = {
-      headers: headers
+      headers: {
+        'Content-type': 'application/json'
+       }
     }
 
     return this.http.post('https://localhost:5001/api/autores', JSON.stringify(autor), options);
