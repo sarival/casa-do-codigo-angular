@@ -5,37 +5,34 @@
 
     <div class="form-group">
       <label for="exampleInputPassword1">Nome</label>
-      <input type="text" formControlName="nome" class="form-control" id="exampleInputPassword1">
+      <input type="text" formControlName="nome" class="form-control" id="exampleInputPassword1" [ngClass]="{'is-invalid': displayMessage.nome }">
 
-      <span class="text-danger" *ngIf="cadastroForm.get('nome').errors && (cadastroForm.get('nome').touched || cadastroForm.get('nome').dirty)">
-        <p>Campo Obrigatório</p>
+      <span class="text-danger" *ngIf="displayMessage.nome">
+        <p [innerHTML]="displayMessage.nome"></p>
       </span>
     </div>
    
     <div class="form-group">
       <label for="exampleInputEmail1">Email</label>
-      <input [ngClass]="{'is-invalid': cadastroForm.get('email').errors && (cadastroForm.get('email').touched || cadastroForm.get('email').dirty)}" type="email" formControlName="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+      <input [ngClass]="{'is-invalid': displayMessage.email }" type="email" formControlName="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
 
-      <span class="text-danger" *ngIf="cadastroForm.get('email')?.errors?.required && (cadastroForm.get('email').touched || cadastroForm.get('email').dirty)">
-        <p>Campo Obrigatório</p>
-      </span>
-      <span class="text-danger" *ngIf="cadastroForm.get('email')?.errors?.email && (cadastroForm.get('email').touched || cadastroForm.get('email').dirty)">
-        <p>Formato invalido</p>
+      <span class="text-danger" *ngIf="displayMessage.email">
+        <p [innerHTML]="displayMessage.email"></p>
       </span>
     </div>
 
     <div class="form-group">
       <label for="exampleFormControlTextarea1">Descrição</label>
-      <textarea formControlName="descricao" class="form-control" id="exampleFormControlTextarea1" rows="3" maxlength="400"></textarea>
+      <textarea formControlName="descricao" class="form-control" id="exampleFormControlTextarea1" rows="3" maxlength="400" [ngClass]="{'is-invalid': displayMessage.descricao }"></textarea>
 
-      <span class="text-danger" *ngIf="cadastroForm.get('descricao').errors && (cadastroForm.get('descricao').touched || cadastroForm.get('descricao').dirty)">
-        <p>Campo Obrigatório</p>
+      <span class="text-danger" *ngIf="displayMessage.descricao">
+        <p [innerHTML]="displayMessage.descricao"></p>
       </span>
     </div>
 
     <button type="submit" class="btn btn-primary btn-block col-2" [disabled]="!cadastroForm.valid">Cadastrar</button>
   </form>
   <div class="mt-4">
-    <button class="btn btn-outline-secondary btn-block col-2" [routerLink]="['/home']">Voltar para Home</button>
+    <button class="btn btn-outline-secondary btn-block col-2" [routerLink]="['/home']">Home</button>
   </div>
 </div>
