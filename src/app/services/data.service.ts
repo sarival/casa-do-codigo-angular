@@ -1,0 +1,21 @@
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class DataService {
+
+  constructor(private http: HttpClient) { }
+
+  public cadastrarAutor(autor){
+
+    const options = {
+      headers: {
+        'Content-type': 'application/json'
+       }
+    }
+
+    return this.http.post('https://localhost:5001/api/autores', JSON.stringify(autor), options);
+  }
+}
