@@ -8,14 +8,18 @@ export class DataService {
 
   constructor(private http: HttpClient) { }
 
+  private options = {
+    headers: {
+      'Content-type': 'application/json'
+     }
+  }
+
   public cadastrarAutor(autor){
+    return this.http.post('https://localhost:5001/api/autores', JSON.stringify(autor), this.options);
+  }
 
-    const options = {
-      headers: {
-        'Content-type': 'application/json'
-       }
-    }
 
-    return this.http.post('https://localhost:5001/api/autores', JSON.stringify(autor), options);
+  public cadastrarCategoria(categoria){
+    return this.http.post('https://localhost:5001/api/categorias', JSON.stringify(categoria), this.options);
   }
 }
