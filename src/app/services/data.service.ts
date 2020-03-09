@@ -17,11 +17,16 @@ export class DataService {
      }
   }
 
+  /** @description Create a Autor - POST.
+   * @param {any} categoria represents an Autor from a form.
+   */
   public cadastrarAutor(autor){
     return this.http.post(`${this.baseUrl}/autores`, JSON.stringify(autor), this.options);
   }
 
-
+/** @description Create a Categoria - POST.
+ * @param {any} categoria represents a category from a form.
+ */
   public cadastrarCategoria(categoria){
     return this.http.post(`${this.baseUrl}/categorias`, JSON.stringify(categoria), this.options);
   }
