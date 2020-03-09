@@ -34,7 +34,7 @@ export class CadastroCategoriaComponent implements OnInit, AfterViewInit {
 
   ngOnInit() {
     this.cadastroForm = this.fb.group({
-      nome: ['', Validators.required]
+      nome: [{value: '', disabled: false}, Validators.required]
     });
   }
 
