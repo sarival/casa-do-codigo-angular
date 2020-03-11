@@ -8,6 +8,7 @@ import { NavbarComponent } from './navegacao/navbar/navbar.component';
 import { HomeAdminComponent } from './admin/home-admin/home-admin.component';
 import { CadastroAutorComponent } from './admin/autor/cadastro-autor/cadastro-autor.component';
 import { DataService } from './services/data.service';
+import { CadastroCategoriaComponent } from './admin/categoria/cadastro-categoria/cadastro-categoria.component';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { DataService } from './services/data.service';
     AppComponent,
     NavbarComponent,
     HomeAdminComponent,
-    CadastroAutorComponent
+    CadastroAutorComponent,
+    CadastroCategoriaComponent
   ],
   imports: [
     BrowserModule,

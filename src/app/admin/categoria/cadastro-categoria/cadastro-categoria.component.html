@@ -1,0 +1,20 @@
+<div class="container col-6 mt-4">
+  <h4>Cadastro de Categoria</h4>
+  <hr>
+  <form [formGroup]="cadastroForm" (ngSubmit)="adicionarCategoria()">
+
+    <div class="form-group">
+      <label for="exampleInputPassword1">Nome</label>
+      <input type="text" formControlName="nome" class="form-control" id="exampleInputPassword1" [ngClass]="{'is-invalid': displayMessage.nome }">
+
+      <span class="text-danger" *ngIf="displayMessage.nome">
+        <p [innerHTML]="displayMessage.nome"></p>
+      </span>
+    </div>
+   
+    <button type="submit" class="btn btn-primary btn-block col-2" [disabled]="!cadastroForm.valid">Cadastrar</button>
+  </form>
+  <div class="mt-4">
+    <button class="btn btn-outline-secondary btn-block col-2" [routerLink]="['/home']">Home</button>
+  </div>
+</div>
