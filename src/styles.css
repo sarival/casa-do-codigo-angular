@@ -1,1 +1,39 @@
-/* You can add global styles to this file, and also import other style files */
+
+.flex{
+  padding-top: 50px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.livro{
+  max-width: 230px;
+  min-width: 200px;
+  padding: 10px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  text-align: center;
+  background-color: antiquewhite;
+}
+
+.livro a{
+  text-decoration: none;
+  color: rgb(44, 44, 44);
+}
+
+.livro a:hover{
+  text-decoration: underline;
+}
+
+.livro-capa{
+  max-width: 180px;
+  height: auto;
+}
+
+.livro-titulo{
+  color: rgb(44, 44, 44);
+  font-weight: bold;
+}
+
+.livro-autor{
+  color: rgb(44, 44, 44);
+}
