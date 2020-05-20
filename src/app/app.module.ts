@@ -7,8 +7,8 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './navegacao/navbar/navbar.component';
 import { HomeAdminComponent } from './admin/home-admin/home-admin.component';
 import { CadastroAutorComponent } from './admin/autor/cadastro-autor/cadastro-autor.component';
-import { DataService } from './services/data.service';
 import { CadastroCategoriaComponent } from './admin/categoria/cadastro-categoria/cadastro-categoria.component';
+import { LivrosService } from './services/livros.service';
 
 
 @NgModule({
@@ -26,7 +26,7 @@ import { CadastroCategoriaComponent } from './admin/categoria/cadastro-categoria
     ReactiveFormsModule,
     FormsModule,
   ],
-  providers: [DataService],
+  providers: [LivrosService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

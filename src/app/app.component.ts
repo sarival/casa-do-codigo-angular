@@ -8,12 +8,10 @@ import { LivrosService } from './services/livros.service'
 })
 export class AppComponent {
   private title = 'casa-do-codigo-angular';
+  private livros = [];
 
-  livros = [];
-  livrosService: LivrosService;
-
-  constructor() {
-    this.livrosService = new LivrosService();
+  // usando injeção de dependencia
+  constructor(private livrosService: LivrosService) {
   }
 
   //obtem dado - boa prática usar ngOnInit
