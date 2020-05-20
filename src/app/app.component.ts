@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'casa-do-codigo-angular';
+  private title = 'casa-do-codigo-angular';
 
   // livros estáticos - listar no componente raiz
   livros = [
