@@ -1,4 +1,4 @@
-export class Livro{
+export interface Livro{
   titulo: string;
   autor: string;
   capa: string;
