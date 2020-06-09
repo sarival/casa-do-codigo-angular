@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
+import { Livro } from '../livros/livro/livro';
 
 @Injectable({
   providedIn: 'root',
 })
 export class LivrosService {
 
-  private livros = [
+  private livros: Livro[] = [
     { 
       titulo: "Acessibilidade na Web",
       autor: "Reinaldo Ferraz", 
@@ -18,7 +19,7 @@ export class LivrosService {
     { titulo: "Google App Engine", autor: "Paulo Siécola", capa: "https://cdn.shopify.com/s/files/1/0155/7645/products/wcDpyDSPxRrpeqG0itn55xvz_sD_BZ_LdhTtnEDtTlM_large.jpg?v=1519321935"}
   ];
 
-  public getlivros(){
+  public getlivros(): Array<Livro> {
     return this.livros;
   }
 }
