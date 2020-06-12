@@ -1,21 +1,21 @@
-import { Component } from '@angular/core';
-import { LivrosService } from './services/livros.service'
+import { Component, OnInit } from '@angular/core';
+import { LivroService } from './livros/livro/livro.service'
+import { Livro } from './livros/livro/livro';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   private title = 'casa-do-codigo-angular';
-  private livros = [];
-
-  // usando injeção de dependencia
-  constructor(private livrosService: LivrosService) {
+  private livros: Livro[];
+  
+  constructor(private livroService: LivroService) {
   }
 
-  //obtem dado - boa prática usar ngOnInit
+  //Entender melhor - Precisa do subcrive
   ngOnInit(){
-    this.livros = this.livrosService.getlivros();
+    this.livroService.getLivros().subscribe(livros => this.livros = livros);
   }
 }
