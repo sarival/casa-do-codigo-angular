@@ -8,7 +8,6 @@ import { Livro } from '../livro/livro';
   styleUrls: ['./lirvos-list.component.css']
 })
 export class LirvosListComponent implements OnInit {
-  private title = 'casa-do-codigo-angular';
   private livros: Livro[];
   
   constructor(private livroService: LivroService) {

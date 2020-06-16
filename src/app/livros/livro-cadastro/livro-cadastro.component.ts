@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Livro } from '../livro/livro';
 import { LivroService } from '../livro/livro.service';
 import { LirvosListComponent } from '../lirvos-list/lirvos-list.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-livro-cadastro',
@@ -10,20 +11,13 @@ import { LirvosListComponent } from '../lirvos-list/lirvos-list.component';
 })
 export class LivroCadastroComponent implements OnInit {
   private livro = new Livro();
-  private livros: Livro[];
 
-  constructor(private livroService: LivroService) { }
+  constructor(private livroService: LivroService, private router: Router) { }
 
-  ngOnInit() {
-    this.livroService.getLivros().subscribe(livros => this.livros = livros);
-  }
+  ngOnInit() {}
 
-  onSubmit(): void{
-    this.livroService.cadastrarLivro(this.livro).subscribe(livro => {
-      this.livros.push(livro);
-    });
-
-    console.log(this.livros)
+  onSubmit() {
+    this.livroService.cadastrarLivro(this.livro).subscribe(res => {this.router.navigateByUrl("/")});
   }
 
 }
