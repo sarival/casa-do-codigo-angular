@@ -5,7 +5,7 @@ import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService }  from './services/in-memory-data.service';
 
 
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navegacao/navbar/navbar.component';
@@ -21,9 +21,9 @@ import { LivroCadastroComponent } from './livros/livro-cadastro/livro-cadastro.c
   declarations: [
     AppComponent,
     NavbarComponent,
-    HomeAdminComponent,
-    CadastroAutorComponent,
-    CadastroCategoriaComponent,
+    // HomeAdminComponent,
+    // CadastroAutorComponent,
+    // CadastroCategoriaComponent,
     LirvosListComponent,
     LivroCadastroComponent
   ],
@@ -31,11 +31,10 @@ import { LivroCadastroComponent } from './livros/livro-cadastro/livro-cadastro.c
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule,
     FormsModule,
     HttpClientInMemoryWebApiModule.forRoot(
       InMemoryDataService, { dataEncapsulation: false }
-    )
+      ),
   ],
   providers: [LivroService],
   bootstrap: [AppComponent]

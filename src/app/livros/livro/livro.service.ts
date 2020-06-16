@@ -12,10 +12,12 @@ export class LivroService {
 
   private livrosUrl = 'api/livros'
 
-  //Entender melhor - retorna um observable
-  //Como ele encontra a in-memory-data.service?
   public getLivros(): Observable<Livro[]> {
     return this.http.get<Livro[]>(this.livrosUrl);
+  }
+
+  public cadastrarLivro(livro){
+    //post
   }
 
 }

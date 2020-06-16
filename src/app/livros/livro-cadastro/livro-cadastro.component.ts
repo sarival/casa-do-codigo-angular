@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Livro } from '../livro/livro';
+import { LivroService } from '../livro/livro.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-livro-cadastro',
@@ -6,10 +9,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./livro-cadastro.component.css']
 })
 export class LivroCadastroComponent implements OnInit {
+  livro = new Livro();
 
-  constructor() { }
+  constructor(private livroService: LivroService, private router: Router) { }
 
   ngOnInit() {
+  }
+
+  onSubmit(){
+    this.livroService.cadastrarLivro(this.livro);
   }
 
 }

@@ -7,7 +7,7 @@ import { Livro } from '../livros/livro/livro';
 })
 export class InMemoryDataService implements InMemoryDbService{
   createDb(){
-    const livros: Livro[] = [
+    let livros: Livro[] = [
       { 
         titulo: "Acessibilidade na Web",
         autor: "Reinaldo Ferraz", 
