@@ -1,0 +1,29 @@
+
+<div class="container">
+  <h1>Novo Livro</h1>
+  <form (ngSubmit)="onSubmit()" #form="ngForm" novalidate>
+
+    <!-- criar um input como componente? -->
+    <div class="form-group">
+      <label for="titulo">Titulo</label>
+      <input type="text" class="form-control" id="titulo" required [(ngModel)]="livro.titulo" name="titulo" #titulo="ngModel">
+      <div [hidden]="titulo.valid || titulo.pristine" class="alert alert-danger">Titulo é requirido</div>
+    </div>
+
+    <div class="form-group">
+      <label for="autor">Autor</label>
+      <input type="text" class="form-control" id="autor" required [(ngModel)]="livro.autor" name="autor" #autor="ngModel">
+      <div [hidden]="autor.valid || autor.pristine" class="alert alert-danger">Autor é requirido</div>
+    </div>
+
+    <div class="form-group">
+      <label for="capa">Capa</label>
+      <input type="text" class="form-control" id="capa" [(ngModel)]="livro.capa" name="capa">
+    </div>
+
+    <button type="submit" class="btn btn-success" [disabled]="!form.valid">Cadastrar</button>
+  </form>
+  <div class="mt-4">
+    <a class="btn btn-primary" [routerLink]="['/home']">Voltar</a>
+  </div>
+</div>

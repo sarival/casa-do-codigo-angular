@@ -1,13 +1,2 @@
 <app-navbar></app-navbar>
-<!-- <router-outlet></router-outlet> -->
-
-<!-- usando interpolação {{}} para pegar dados do ts para o template -->
-<div class="container flex">
-    <div class="livro" *ngFor="let livro of livros">
-      <a href="#">
-        <p class="livro-titulo">{{livro.titulo}}</p>
-        <img class="livro-capa" [src]="livro.capa" alt="Capa do livro {{livro.titulo}}">
-        <p class="livro-autor">{{livro.autor}}</p>
-      </a>
-    </div>
-</div>
+<router-outlet></router-outlet>

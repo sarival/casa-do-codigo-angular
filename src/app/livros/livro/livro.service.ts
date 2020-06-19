@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Livro } from './livro';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -12,10 +12,12 @@ export class LivroService {
 
   private livrosUrl = 'api/livros'
 
-  //Entender melhor - retorna um observable
-  //Como ele encontra a in-memory-data.service?
   public getLivros(): Observable<Livro[]> {
     return this.http.get<Livro[]>(this.livrosUrl);
+  }
+
+  public cadastrarLivro(livro: Livro): Observable<Livro> {
+    return this.http.post<Livro>(this.livrosUrl, livro);
   }
 
 }
